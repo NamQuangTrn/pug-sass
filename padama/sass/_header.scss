@@ -1,0 +1,93 @@
+@import "./mixin";
+@import "./variable";
+header{
+    background-color: $bg-light;
+    @include reset;
+    @include screen(100%, 100px);
+    position: fixed;
+    box-shadow: $shadow;
+    @include dflex;
+    z-index: 1;
+
+    .container{
+
+        @include screen(80%, 70px);
+        @include dflex;
+        justify-content: space-between;
+        
+
+
+        .menu{
+            
+            border: 1px solid $color-grey;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            
+            a{
+                @include screen;
+                // margin-left: 5px;
+            }
+            .nav{
+                border-right: 1px ;
+                display: block;
+                @include screen(300px, 100vh);
+                position: absolute;
+                top: -20px;
+                left: 0px;
+                @include reset;
+                box-shadow: $shadow;
+                background-color: $bg-light;
+                transition: transform .5s, 
+                opacity .3s;
+                transform: translateX(-100%);
+                &-list{
+                    width: 100%;
+                    padding-block: 40px;
+
+                    li{
+                        padding-block: 15px;
+                        padding-left: 20px;
+                        cursor: pointer;
+
+                        a{
+                            color: $color-grey;
+                            height: 20px;
+                            width: 100%;
+                            letter-spacing: .02em;
+                            text-transform: uppercase;
+                            font-weight: bolder;
+                        }
+                        &:hover{
+                            background-color:  $bg-hover;
+                        }
+                    }
+
+                    
+                }
+            }
+            &:hover>.nav{
+                transform: translateX(0px);
+            }
+        }
+        .logo{
+       
+            img{
+                width: 229px;
+            }
+        }
+        .hotline{
+            color: $color-grey;
+            i{
+                color: $color-warning;
+            }
+            span{
+                font-weight: 900;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    
+
+}
